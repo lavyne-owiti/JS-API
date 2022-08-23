@@ -6,13 +6,14 @@
 //     },  
 // }
 
-const item=document.getElementById('products');
-fetch('https://localhost:5000/products')
+
+fetch('http://localhost:5000/products')
 .then(function (response) {
 return response.json();
 })
 .then(function (data) {
-    console.log('success', data);  
+    console.log('success', data); 
+    const item=document.getElementById('products'); 
     data.map(function(product){
         let li =document.createElement('li');
         li.innerHTML=`${product.name}`;
@@ -23,13 +24,14 @@ return response.json();
 console.log('error', error);
 });
 
-const fruList=document.getElementById('fruList');
-fetch('https://localhost:5000/products/fruList')
+
+fetch('http://localhost:5000/products/fruits')
 .then(function (response) {
 return response.json();
 })
 .then(function (data) {
     console.log('success', data);
+    const fruList=document.getElementById('fruList');
     data.map(function(frulist){
         let li =document.createElement('li');
         li.innerHTML=`${frulist.name}`;
@@ -40,14 +42,14 @@ return response.json();
 console.log('error', error);
 });
 
-const vegList =document.getElementById('vegList')
-fetch('https://localhost:5000/products/vegList')
+
+fetch('http://localhost:5000/products/vegetables')
 .then(function (response) {
 return response.json();
 })
 .then(function (data) {
     console.log('success', data);
-    
+    const vegList =document.getElementById('vegList')
     data.map(function(veglist){
         let li =document.createElement('li');
         li.innerHTML=`${veglist.name}`;
